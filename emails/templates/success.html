@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Success</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/success.css') }}" />
+</head>
+<body>
+	<div id="valid">
+		<p>The email address you entered ({{ entry }}) is a VALID email address! Thank you!</p>
+	</div>
+	<h1>Email addresses entered:</h1>
+	<table>
+		{% for email in all_emails %}
+			<tr>
+				<td>{{ email['email'] }}</td>
+				<td>{{ email['date_entered'] }}</td>
+				<td><form action="/delete/{{ email['email'] }}" method="POST"><input type="submit" name="delete" value="Delete"></form></td>
+			</tr>
+		{% endfor %}
+	</table>
+	
+
+</body>
+</html>

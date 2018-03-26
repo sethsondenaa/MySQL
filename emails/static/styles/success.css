@@ -1,0 +1,9 @@
+body {
+	font-family: sans-serif;
+}
+
+#valid {
+	background-color: green;
+	border: 2px solid black;
+	display: inline-block;
+}

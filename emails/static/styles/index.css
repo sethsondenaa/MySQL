@@ -1,0 +1,11 @@
+body {
+	font-family: sans-serif;
+}
+
+#invalid {
+	background-color: red;
+	color: white;
+	text-align: center;
+	display: inline-block;
+	border: 2px solid black;
+}
