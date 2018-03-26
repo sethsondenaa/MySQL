@@ -1,0 +1,129 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red217\green11\blue5;
+\red28\green214\blue4;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c88946\c14202\c0;
+\cssrgb\c0\c85000\c0;\csgray\c0\c0;}
+\margl1440\margr1440\vieww10800\viewh11860\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 config = \{\
+                'host': 'localhost',\
+                'database': db, # we got db as an argument\
+                'user': 'root',\
+                'password': 'root',\
+                'port': '3306' # change the port to match the port your SQL server is running on\
+        \}\
+\
+\
+1. \
+\
+config = \{\
+                'host': 'localhost',\
+                'database': db, # we got db as an argument\
+                'user': 'root',\
+                'password': 'root',\
+                'port': \'911000\'92 # change the port to match the port your SQL server is running on\
+        \}\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Error: \
+OperationalError: (_mysql_exceptions.OperationalError) (\cf4 2003\cf2 , "Can't connect to MySQL server on '127.0.0.1' (61)") (Background on this error at: http://sqlalche.me/e/e3q8)\
+\
+Fix:\
+set the port to the correct \'913306\'92 or change the port in your MySQL connection to the one listed in your config\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 2. \
+\
+config = \{\
+                'host': 'localhost',\
+                'database': db, # we got db as an argument\
+                'user': 'root',\
+                'password': \'91trunk\'92,\
+                'port': \'913306\'92 # change the port to match the port your SQL server is running on\
+        \}\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Error:\
+OperationalError: (_mysql_exceptions.OperationalError) (\cf4 1045\cf2 , "Access denied for user 'root'@'localhost' (using password: YES)") (Background on this error at: http://sqlalche.me/e/e3q8)\
+\
+Fix:\
+make sure the user and password are the correct values\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 3. \
+\
+config = \{\
+                'host': 'localhost',\
+                'database': db, # we got db as an argument\
+                'user': \'91tree\'92,\
+                'password': \'91root\'92,\
+                'port': \'913306\'92 # change the port to match the port your SQL server is running on\
+        \}
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 Error:\
+OperationalError: (_mysql_exceptions.OperationalError) (\cf4 1045\cf2 , "Access denied for user 'tree'@'localhost' (using password: YES)") (Background on this error at: http://sqlalche.me/e/e3q8)\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+Fix:\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 make sure the user and password are the correct values\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 4. \
+\
+config = \{\
+                'host': \'91host\'92,\
+                'database': db, # we got db as an argument\
+                'user': \'91root\'92,\
+                'password': \'91root\'92,\
+                'port': \'913306\'92 # change the port to match the port your SQL server is running on\
+        \}
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+Didn\'92t produce an error.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 5. \
+\
+config = \{\
+                'host': 'localhost',\
+                \'91data\'92: db, # we got db as an argument\
+                'user': \'91tree\'92,\
+                'password': \'91root\'92,\
+                'port': \'913306\'92 # change the port to match the port your SQL server is running on\
+        \}
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf5 \cb2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 KeyError: 'database'\cf2 \cb6 \
+\
+Fix:\
+Keyword errors stop the server and show in terminal. Make sure all the key words are correct.
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+\
+\
+\
+}
