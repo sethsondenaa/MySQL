@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page Registration</title>
+</head>
+<body>
+	<h1>Log In:</h1>
+	<form action='/login' method='POST'>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "email_error" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="email">Email:<input type="text" name="email"></label></br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "password_error" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="password">Password:<input type="password" name="password"></label></br>
+		<input type="submit" name="logon" value="Logon">
+	</form>
+	<h1>If you need to register, please fill out below:</h1>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				{% if category == "incomplete" %}
+					<p class="{{ category }}">{{ message }}</p>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<form action='/process' method='POST'>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "first_name_error" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="first_name">First Name:<input type="text" name="first_name"></label></br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "last_name_error" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="last_name">Last Name:<input type="text" name="last_name"></label></br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "email_error" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="email">Email:<input type="text" name="email"></label></br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "password_error" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="password">Password:<input type="password" name="password"></label></br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "password_error_two" %}
+						<p class="{{ category }}">{{ message }}</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="confirm_password">Confirm Password:<input type="password" name="confirm_password"></label></br>
+		<input type="submit" name="register" value="Register">
+	</form>
+</body>
+</html>
