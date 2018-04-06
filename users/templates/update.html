@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users: Edit a User</title>
+</head>
+<body>
+	<h1>Edit User {{show_user[0].id}}</h1>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			<ul class="flashes">
+				{% for category, message in messages %}
+					{% if category == "Add_Error" %}
+						<li>{{ message }}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	<form action="/update/{{show_user[0].id}}" method="POST">
+		<label for="first_name">First name:<input type="text" name="first_name" value="{{show_user[0].first_name}}" id="first_name"></label>
+		<label for="last_name">Last name:<input type="text" name="last_name" id="last_name" value="{{show_user[0].last_name}}"></label>
+		<label for="email">Email:<input type="text" name="email" id="email" value="{{show_user[0].email}}"></label>
+		<input type="submit" name="create" value="Update">
+	</form>
+	<p><a href="/users/{{show_user[0].id}}">Show</a> | <a href="/users">Go Back</a></p>
+</body>
+</html>
